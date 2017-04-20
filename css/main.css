@@ -1,0 +1,16 @@
+.toon-image {
+	width: 450px;
+	height: 550px;
+	background-image: url('http://render-us.worldofwarcraft.com/character/bleeding-hollow/149/183358101-profilemain.jpg');
+	background-position: center;
+	background-size: cover;
+}
+
+.toon-stats {
+	vertical-align: top;
+}
+
+section {
+	border: 1px solid black;
+	padding: 10px;
+}

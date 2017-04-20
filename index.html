@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>ToonFinder</title>
+	<meta name="description" content="Search for World of Warcraft Player Character Information">
+
+	<!-- Responsive viewport tag, tells small screens that it's responsive -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+ 	<!-- Normalize.css, a cross-browser reset file -->
+ 	<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.css" rel="stylesheet">
+
+ 	<!-- Google Font -->
+ 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+
+ 	<!-- Stylesheets -->
+	<link rel="stylesheet" href="css/float-grid.css" />
+	<link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+	<header>
+		<h1>ToonFinder</h1>
+	</header>
+	<section class="home-screen">
+		<form>
+			<label>Realm:</label>
+			<input type="text" required placeholder="Realm Name">
+			<label>Character:</label>
+			<input type="text" required placeholder="Character Name">
+			<button type="submit">Find</button>
+		</form>
+	</section>
+
+	<section class="character-screen">
+
+		<div class="row">
+			<div class="col-6">
+				<div>
+					<h2 class="js-character-name">NAME</h2>
+					<p>Level <span class="js-level">LEVEL</span> | <span class="js-player-class">CLASS</span> | <span class="js-realm">REALM</span></p>
+					<p><span class="js-guild">GUILD</span></p>
+				</div>
+			</div>
+			<div class="col-6">
+				<div>
+					<h2>Search Again</h2>
+					<form id="js-search-form">
+						<label>Realm:</label>
+						<input type="text" class="js-realm" required placeholder="Realm Name">
+						<br>
+						<label>Character:</label>
+						<input type="text" class="js-toon" required placeholder="Character Name">
+						<br>
+						<button type="submit">Find</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-6">
+				<div class="toon-stats">
+					<h3>Character Stats</h3>
+					<ul>
+						<li>Stamina: <span class="stamina"></span></li>
+						<li>Item Level: <span class="item-level"></span></li>
+						<li>etc.</li>
+					</ul>
+					<h3>Gear List</h3>
+					<h3>Talents</h3>
+					<h3>Recent Activities</h3>
+					<h3>Recent Achievements</h3>
+				</div>
+			</div>
+			<div class="col-6">
+				<div class="toon-image">
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+  	<script src="app.js"></script>
+</body>
+</html>
