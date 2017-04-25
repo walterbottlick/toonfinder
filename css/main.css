@@ -1,9 +1,26 @@
+.home-screen, header {
+	max-width: 600px;
+  	margin: 0 auto;
+  	text-align: center;
+}
+
+.home-screen .js-search-form input {
+	margin-bottom: 20px;
+}
+
+.character-screen .js-search-form input {
+	margin-bottom: 10px;
+}
+
+.hidden {
+	display: none;
+}
+
 .toon-image {
-	width: 450px;
-	height: 550px;
-	background-image: url('http://render-us.worldofwarcraft.com/character/bleeding-hollow/149/183358101-profilemain.jpg');
+	height: 500px;
 	background-position: center;
 	background-size: cover;
+	margin-top: 15px;
 }
 
 .toon-stats {
@@ -11,6 +28,177 @@
 }
 
 section {
-	border: 1px solid black;
 	padding: 10px;
+}
+
+.gear-list, .talent-list {
+	list-style-type: none;
+	padding: 0;
+	font-size: 14px;
+}
+
+.gear-list h4 {
+	text-transform: capitalize;
+	font-size: 18px;
+	margin: 15px 0;
+}
+
+.gear-list li {
+	padding-bottom: 15px;
+	margin: 10px 0;
+	background-color: #330b0b;
+	color: white;
+}
+
+.talent-list p {
+	margin-top: 0;
+}
+
+.talent-list img {
+	margin-top: 15px;
+	float:left;
+	margin-right: 10px;
+}
+
+.talent-list h3 {
+	margin-bottom: 0;
+	margin-top: 16px;
+	text-transform: capitalize;
+}
+
+.talent-list h2 {
+	margin-bottom: 0;
+}
+
+.talent-list li {
+	margin: 0;
+	padding: 0;
+	background-color: #330b0b;
+	color: white;
+}
+
+.talent-list li .row {
+	clear: both;
+}
+
+/***** Item Quality Borders *****/
+
+ul .poor {
+	border: 5px solid #9d9d9d;
+}
+
+ul .common {
+	border: 5px solid #ffffff;
+}
+
+ul .uncommon {
+	border: 5px solid #1eff00;
+}
+
+ul .rare {
+	border: 5px solid #0070dd;
+}
+
+ul .epic {
+	border: 5px solid #a335ee;
+}
+
+ul .legendary {
+	border: 5px solid #ff8000;
+}
+
+ul .artifact {
+	border: 5px solid #e6cc80;
+}
+
+ul .heirloom {
+	border: 5px solid #e6cc80;
+}
+
+ul .wow-token {
+	border: 5px solid #00ccff;	
+}
+
+/***** Accordion *****/
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+button.accordion.active, button.accordion:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+}
+
+/***** Talent Buttons *****/
+
+.btn-group {
+	width: 100%;
+}
+
+.button {
+	width: 100%;
+}
+
+.btn-group .button {
+    background-color: #591a1a;
+    border: 1px solid #330b0b;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+}
+.btn-group .button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+.btn-group .button:hover {
+    background-color: #330b0b;
+}
+
+.button img {
+	float: left;
+}
+
+.button h3 {
+	margin: 0;
+}
+
+.button p {
+	margin: 0;
+	font-size: 12px;
+}
+
+@media only screen and (min-width: 640px) {
+	.button {
+		width: 50%;
+	}
+
+	.toon-image {
+		width: 400px;
+		margin-top: 0;
+	}
+}
+
+/***** Styling for profile image scroller *****/
+
+.scrolling {
+    position: fixed;
+    top: 0;
 }

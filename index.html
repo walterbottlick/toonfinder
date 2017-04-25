@@ -23,35 +23,36 @@
 		<h1>ToonFinder</h1>
 	</header>
 	<section class="home-screen">
-		<form>
+		<form class="js-search-form">
 			<label>Realm:</label>
-			<input type="text" required placeholder="Realm Name">
+			<input type="text" class="js-realm" required placeholder="Realm Name">
+			<br>
 			<label>Character:</label>
-			<input type="text" required placeholder="Character Name">
+			<input type="text" class="js-toon" required placeholder="Character Name">
+			<br>
 			<button type="submit">Find</button>
 		</form>
 	</section>
 
-	<section class="character-screen">
+	<section class="character-screen hidden">
 
 		<div class="row">
-			<div class="col-6">
+			<div class="col-7">
 				<div>
 					<h2 class="js-character-name">NAME</h2>
-					<p>Level <span class="js-level">LEVEL</span> | <span class="js-player-class">CLASS</span> | <span class="js-realm">REALM</span></p>
+					<p>Level <span class="js-level">LEVEL</span> | <span class="js-player-race">RACE</span> <span class="js-player-class">CLASS</span> | <span class="js-realm">REALM</span></p>
 					<p><span class="js-guild">GUILD</span></p>
 				</div>
 			</div>
-			<div class="col-6">
+			<div class="col-5">
 				<div>
 					<h2>Search Again</h2>
-					<form id="js-search-form">
+					<form class="js-search-form">
 						<label>Realm:</label>
 						<input type="text" class="js-realm" required placeholder="Realm Name">
 						<br>
 						<label>Character:</label>
 						<input type="text" class="js-toon" required placeholder="Character Name">
-						<br>
 						<button type="submit">Find</button>
 					</form>
 				</div>
@@ -59,22 +60,56 @@
 		</div>
 
 		<div class="row">
-			<div class="col-6">
+			<div class="col-7">
 				<div class="toon-stats">
-					<h3>Character Stats</h3>
-					<ul>
-						<li>Stamina: <span class="stamina"></span></li>
-						<li>Item Level: <span class="item-level"></span></li>
-						<li>etc.</li>
-					</ul>
-					<h3>Gear List</h3>
-					<h3>Talents</h3>
-					<h3>Recent Activities</h3>
-					<h3>Recent Achievements</h3>
+
+					<button class="accordion">Character Stats</button>
+						<div class="panel">
+							<h3>Primary Attributes</h3>
+  							<ul>
+								<li>Health: <span class="js-health"></span></li>
+								<li>Stamina: <span class="js-stamina"></span></li>
+								<li>Strength: <span class="js-strength"></span></li>
+								<li>Agility: <span class="js-agility"></span></li>
+								<li>Intellect: <span class="js-intellect"></span></li>
+							</ul>
+							<h3>Secondary Attributes</h3>
+							<ul>
+								<li>Crit: <span class="js-crit-rating"></span> [<span class="js-crit"></span>%]</li>
+								<li>Haste: <span class="js-haste-rating"></span> [<span class="js-haste"></span>%]</li>
+								<li>Mastery: <span class="js-mastery-rating"></span> [<span class="js-mastery"></span>%]</li>
+								<li>Versatility: <span class="js-versatility"></span> [<span class="js-versatility-bonus"></span>%]</li>
+								<li>Leech: <span class="js-leech-rating"></span> [<span class="js-leech"></span>%]</li>
+								<li>Avoidance: <span class="js-avoidance"></span> [<span class="js-avoidance-bonus"></span>%]</li>
+							</ul>
+							<h3>Defence</h3>
+							<ul>
+								<li>Armor: <span class="js-armor"></span></li>
+								<li>Parry: <span class="js-parry-rating"></span> [<span class="js-parry"></span>%]</li>
+								<li>Dodge: <span class="js-dodge-rating"></span> [<span class="js-dodge"></span>%]</li>
+								<li>Block: <span class="js-block-rating"></span> [<span class="js-block"></span>%]</li>
+							</ul>
+						</div>
+
+					<button class="accordion">Gear List</button>
+						<div class="panel">
+  							<h3>Average Item Level: <span class="js-item-level"></span></h3>
+  							<ul class="gear-list">
+  							</ul>
+						</div>
+
+					<button class="accordion">Talents</button>
+						<div class="panel">
+							<div class="spec-buttons">
+							</div>
+						</div>
 				</div>
 			</div>
-			<div class="col-6">
-				<div class="toon-image">
+			<div class="col-5">
+				<div class="image-scroll">
+					<div class="toon-image">
+						<!--<img src="https://render-us.worldofwarcraft.com/character/bleeding-hollow/149/183358101-profilemain.jpg">-->
+					</div>
 				</div>
 			</div>
 		</div>
