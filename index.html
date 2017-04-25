@@ -17,6 +17,7 @@
  	<!-- Stylesheets -->
 	<link rel="stylesheet" href="css/float-grid.css" />
 	<link rel="stylesheet" href="css/main.css" />
+	<!--<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />-->
 </head>
 <body>
 	<header>
@@ -24,11 +25,12 @@
 	</header>
 	<section class="home-screen">
 		<form class="js-search-form">
-			<label>Realm:</label>
-			<input type="text" class="js-realm" required placeholder="Realm Name">
-			<br>
-			<label>Character:</label>
-			<input type="text" class="js-toon" required placeholder="Character Name">
+			<div class="realm-container">
+				<label for="realms">Realm:</label>
+				<input id="realms" type="text" class="js-realm" required placeholder="Realm Name">
+			</div>
+			<label for="find">Character:</label>
+			<input id="find" type="text" class="js-toon" required placeholder="Character Name">
 			<br>
 			<button type="submit">Find</button>
 		</form>
@@ -48,11 +50,11 @@
 				<div>
 					<h2>Search Again</h2>
 					<form class="js-search-form">
-						<label>Realm:</label>
-						<input type="text" class="js-realm" required placeholder="Realm Name">
+						<label for="realms-again">Realm:</label>
+						<input id="realms-again" type="text" class="js-realm" required placeholder="Realm Name">
 						<br>
-						<label>Character:</label>
-						<input type="text" class="js-toon" required placeholder="Character Name">
+						<label for="find-again">Character:</label>
+						<input id="find-again" type="text" class="js-toon" required placeholder="Character Name">
 						<button type="submit">Find</button>
 					</form>
 				</div>
@@ -108,7 +110,6 @@
 			<div class="col-5">
 				<div class="image-scroll">
 					<div class="toon-image">
-						<!--<img src="https://render-us.worldofwarcraft.com/character/bleeding-hollow/149/183358101-profilemain.jpg">-->
 					</div>
 				</div>
 			</div>
@@ -117,6 +118,7 @@
 	</section>
 
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   	<script src="app.js"></script>
 </body>
 </html>

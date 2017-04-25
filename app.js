@@ -368,6 +368,22 @@ $('.js-search-form').submit(function(e) {
 	}
 });
 
+// Gets current list of US servers for autocomplete on page load
+var realmList = [];
+
+$(function() {
+	$.getJSON('https://us.api.battle.net/wow/realm/status?locale=en_US&apikey=keenufzn5q7n6jnb6yte5acxswu2u9f7', function(realmData) {
+  		for (var i = 0; i < realmData.realms.length; i++) {
+  			realmList.push(realmData.realms[i].name);
+  		}
+
+  		$('#realms').autocomplete({
+			source: realmList,
+			appendTo: '.realm-container'
+		});
+	});
+});
+
 // Listens for Talent button clicks
 $('.spec-buttons').on('click', '.spec-0', function(event) {
 	$('.spec-0-list').removeClass('hidden');
