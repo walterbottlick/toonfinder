@@ -30,9 +30,11 @@ function getRace(toonRace) {
 }
 
 // Displays Character's Profile Image
-function getProfileImage(image) {
-	var imageUrl = 'https://render-us.worldofwarcraft.com/character/' + image.replace('avatar', 'profilemain');
-	$('.toon-image').css('background-image', 'url("' + imageUrl + '")');
+function getProfileImage(image, race) {
+	var imageUrl = 'http://render-us.worldofwarcraft.com/character/' + image.replace('avatar', 'profilemain');
+	var noImageUrl = 'http://us.battle.net/wow/static/images/2d/profilemain/race/' + race + '-0.jpg';
+
+	$('.toon-image').css('background-image', 'url("' + imageUrl + '"), url("' + noImageUrl + '")');
 }
 
 // Displays Character's Gear
@@ -289,15 +291,23 @@ function getTalents(toonTalents) {
 
 // Displays Data on Page
 function displayData(toonData) {
-	getClass(toonData.class);
-	getRace(toonData.race);
-	getProfileImage(toonData.thumbnail);
+
+	console.log(toonData.name);
 
 	$('.js-character-name').html(toonData.name);
 	$('.js-level').html(toonData.level);
 	$('.js-realm').html(toonData.realm);
-	$('.js-guild').html(toonData.guild.name);
 
+	getClass(toonData.class);
+	getRace(toonData.race);
+	getProfileImage(toonData.thumbnail, toonData.race);
+
+	try {
+		$('.js-guild').html(toonData.guild.name);
+	} catch (err) {
+		$('.js-guild').html('');
+	}
+	
 	$('.js-health').html(toonData.stats.health.toLocaleString());
 	$('.js-stamina').html(toonData.stats.sta.toLocaleString());
 	$('.js-strength').html(toonData.stats.str.toLocaleString());
@@ -327,6 +337,9 @@ function displayData(toonData) {
 	getGear(toonData.items);
 
 	getTalents(toonData.talents);
+
+	$('.home-screen').addClass('hidden');
+	$('.character-screen').removeClass('hidden');
 }
 
 // Listens for Button Click
@@ -345,27 +358,25 @@ $('.js-search-form').submit(function(e) {
 
 	var name = $(this).find('.js-toon').val();
 
-	var url = 'https://us.api.battle.net/wow/character/' + realmFormat(realm) + '/' + name;
-
 	var query = {
 		locale: 'en_US',
 		apikey: 'keenufzn5q7n6jnb6yte5acxswu2u9f7',
 		fields: 'guild,stats,items,talents'
 	}
 
-	try {
-		// Gets Character Data from API
-		$.getJSON(url, query, function(toonData) {
-  			displayData(toonData);
+	var url = 'https://us.api.battle.net/wow/character/' + realmFormat(realm) + '/' + name;
+	console.log(url);
+	
+	$.getJSON(url, query, function(toonData) {
+  		displayData(toonData);
+	})
+		.fail(function() {
+			alert('Realm and/or Player Name not found.');
 		});
 
-		e.preventDefault();
+    e.preventDefault();
 
-		$('.home-screen').addClass('hidden');
-		$('.character-screen').removeClass('hidden');
-	} catch(err) {
-		alert("Realm and/or Player name not found.");
-	}
+	
 });
 
 // Gets current list of US servers for autocomplete on page load
@@ -380,6 +391,11 @@ $(function() {
   		$('#realms').autocomplete({
 			source: realmList,
 			appendTo: '.realm-container'
+		});
+
+		$('#realms-again').autocomplete({
+			source: realmList,
+			appendTo: '.realm-container-again'
 		});
 	});
 });

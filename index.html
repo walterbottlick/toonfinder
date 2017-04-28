@@ -38,7 +38,7 @@
 
 	<section class="character-screen hidden">
 
-		<div class="row">
+		<div class="row top-rows">
 			<div class="col-7">
 				<div>
 					<h2 class="js-character-name">NAME</h2>
@@ -50,9 +50,10 @@
 				<div>
 					<h2>Search Again</h2>
 					<form class="js-search-form">
-						<label for="realms-again">Realm:</label>
-						<input id="realms-again" type="text" class="js-realm" required placeholder="Realm Name">
-						<br>
+						<div class="realm-container-again">
+							<label for="realms-again">Realm:</label>
+							<input id="realms-again" type="text" class="js-realm" required placeholder="Realm Name">
+						</div>
 						<label for="find-again">Character:</label>
 						<input id="find-again" type="text" class="js-toon" required placeholder="Character Name">
 						<button type="submit">Find</button>
