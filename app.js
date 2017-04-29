@@ -95,7 +95,7 @@ function getGear(toonGear) {
 				// Checks to make sure the nameDescription key is not empty, returns nothing if it is
 				function nameDesc(nameData) {
 					if (nameData !== '') {
-						return '<span>' + nameData + '</span><br>'
+						return '<span class="green-font">' + nameData + '</span><br>'
 					} else {
 						return '';
 					}
@@ -174,7 +174,7 @@ function getGear(toonGear) {
 					// Checks to see if there is any flavor text, and returns it in a string
 					function flavor(descData) {
 						if (descData !== '') {
-							return '<p>"' + descData + '"</p>'
+							return '<p class="gold-font">"' + descData + '"</p>'
 						} else {
 							return '';
 						}
@@ -201,7 +201,7 @@ function getGear(toonGear) {
 
 						for (var i = 0; i < spellData.length; i++) {
 							if (spellData[i].spell.description !== '') {
-								useResult += '<p>' + trigger(spellData[i].trigger) + spellData[i].spell.description + '</p>';
+								useResult += '<p class="green-font">' + trigger(spellData[i].trigger) + spellData[i].spell.description + '</p>';
 							}
 						}
 
@@ -228,8 +228,8 @@ function getGear(toonGear) {
 
 				// Adds a string of HTML for each item to the originally empty gearList variable
 				gearList += '<li class="' + getQuality(itemData.quality) + '"><div class="row"><div class="col-12"><h4>' + keyFormatter(key) + '</h4></div></div><div class="row"><div class="col-2-5"><div><img src="http://media.blizzard.com/wow/icons/56/'
-					+ itemData.icon + '.jpg"></div></div><div class="col-5-5"><div><span>' + itemData.name + '</span><br>'
-					+ nameDesc(itemData.nameDescription) + '<span>Item Level ' + itemData.itemLevel + '</span><br><span>' + material(itemData.itemClass, itemData.itemSubClass) + '</span></div></div>'
+					+ itemData.icon + '.jpg"></div></div><div class="col-5-5"><div><span class="item-name-color">' + itemData.name + '</span><br>'
+					+ nameDesc(itemData.nameDescription) + '<span class="gold-font">Item Level ' + itemData.itemLevel + '</span><br><span>' + material(itemData.itemClass, itemData.itemSubClass) + '</span></div></div>'
 					+ '<div class="col-4"><div>' + armor(itemData.armor) + gearStats(itemData.bonusStats) + '</div></div></div>' + itemBonus(itemData.itemSpells, itemData.description) + '</li>';
 
 				// Adds the string of HTML for all the gear to the page
@@ -292,8 +292,6 @@ function getTalents(toonTalents) {
 // Displays Data on Page
 function displayData(toonData) {
 
-	console.log(toonData.name);
-
 	$('.js-character-name').html(toonData.name);
 	$('.js-level').html(toonData.level);
 	$('.js-realm').html(toonData.realm);
@@ -306,6 +304,15 @@ function displayData(toonData) {
 		$('.js-guild').html(toonData.guild.name);
 	} catch (err) {
 		$('.js-guild').html('');
+	}
+
+
+	if (toonData.faction === 0) {
+		$('.js-guild').css('color', '#0078ff');
+	} else if (toonData.faction === 1) {
+		$('js-guild').css('color', '#b30000');
+	} else {
+
 	}
 	
 	$('.js-health').html(toonData.stats.health.toLocaleString());
@@ -365,7 +372,6 @@ $('.js-search-form').submit(function(e) {
 	}
 
 	var url = 'https://us.api.battle.net/wow/character/' + realmFormat(realm) + '/' + name;
-	console.log(url);
 	
 	$.getJSON(url, query, function(toonData) {
   		displayData(toonData);

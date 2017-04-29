@@ -1,3 +1,13 @@
+body {
+	color: white;
+	background-color: #330b0b;
+}
+
+h1 {
+	font-family: 'Bowlby One SC', cursive;
+	font-size: 40px;
+}
+
 .home-screen, header {
 	max-width: 600px;
   	margin: 0 auto;
@@ -46,7 +56,7 @@ section {
 .gear-list li {
 	padding-bottom: 15px;
 	margin: 10px 0;
-	background-color: #330b0b;
+	background-color: black;
 	color: white;
 }
 
@@ -85,70 +95,124 @@ section {
 	text-align: center;
 }
 
-.top-rows button {
+.js-search-form button {
 	margin-bottom: 15px;
+	background-color: #591a1a;
+	color: white;
+	font-weight: bold;
+	border: 1px solid black;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.home-screen button {
+	padding: 10px 15px;
+	font-size: 20px;
+}
+
+.character-screen .top-rows button {
+	margin-left: 5px;
 }
 
 /***** Item Quality Borders *****/
 
-ul .poor {
+.poor {
 	border: 5px solid #9d9d9d;
 }
 
-ul .common {
+.poor .item-name-color {
+ 	color: #9d9d9d;
+ }
+
+.common {
 	border: 5px solid #ffffff;
 }
 
-ul .uncommon {
+.common .item-name-color {
+ 	color: #ffffff;
+ }
+
+.uncommon {
 	border: 5px solid #1eff00;
 }
 
-ul .rare {
+.uncommon .item-name-color {
+	color: #1eff00;
+}
+
+.rare {
 	border: 5px solid #0070dd;
 }
 
-ul .epic {
+.rare .item-name-color {
+	color: #0070dd;
+}
+
+.epic {
 	border: 5px solid #a335ee;
 }
 
-ul .legendary {
+.epic .item-name-color {
+	color: #a335ee;
+}
+
+.legendary {
 	border: 5px solid #ff8000;
 }
 
-ul .artifact {
+.legendary .item-name-color {
+	color: #ff8000;
+}
+
+.artifact, .heirloom {
 	border: 5px solid #e6cc80;
 }
 
-ul .heirloom {
-	border: 5px solid #e6cc80;
+.artifact .item-name-color, .heirloom .item-name-color {
+	color: #e6cc80;
 }
 
-ul .wow-token {
+.wow-token {
 	border: 5px solid #00ccff;	
+}
+
+.wow-token .item-name-color {
+	color: #00ccff;
+}
+
+.item-name-color {
+	font-weight: bold;
+	font-size: 16px;
 }
 
 /***** Accordion *****/
 
 button.accordion {
-    background-color: #eee;
-    color: #444;
+    background-color: #591a1a;
+    color: white;
     cursor: pointer;
     padding: 18px;
     width: 100%;
     text-align: left;
-    border: none;
+    border-top: 1px solid #330b0b;
+    border-bottom: 1px solid #330b0b;
+    border-left: none;
+    border-right: none;
     outline: none;
     transition: 0.4s;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
 }
 
 button.accordion.active, button.accordion:hover {
-    background-color: #ddd;
+    background-color: #511010;
 }
 
 div.panel {
     padding: 0 18px;
-    background-color: white;
     display: none;
+    border: none;
 }
 
 /***** Talent Buttons *****/
@@ -177,7 +241,7 @@ div.panel {
     border-right: none; /* Prevent double borders */
 }
 .btn-group .button:hover {
-    background-color: #330b0b;
+    background-color: #511010;
 }
 
 .button img {
@@ -224,6 +288,7 @@ div.panel {
     top: 8px;
     cursor: pointer;
     z-index: 999;
+    color: black;
 }
 
 .ui-menu-item:hover {
@@ -233,6 +298,16 @@ div.panel {
 
 .ui-helper-hidden-accessible {
 	display: none;
+}
+
+/***** Gear Copy Coloring *****/
+
+.green-font {
+	color: #1eff00;
+}
+
+.gold-font {
+	color: #ffd100;
 }
 
 @media only screen and (min-width: 640px) {
