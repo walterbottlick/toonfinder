@@ -31,8 +31,8 @@ function getRace(toonRace) {
 
 // Displays Character's Profile Image
 function getProfileImage(image, race) {
-	var imageUrl = 'http://render-us.worldofwarcraft.com/character/' + image.replace('avatar', 'profilemain');
-	var noImageUrl = 'http://us.battle.net/wow/static/images/2d/profilemain/race/' + race + '-0.jpg';
+	var imageUrl = 'https://render-us.worldofwarcraft.com/character/' + image.replace('avatar', 'profilemain');
+	var noImageUrl = 'https://us.battle.net/wow/static/images/2d/profilemain/race/' + race + '-0.jpg';
 
 	$('.toon-image').css('background-image', 'url("' + imageUrl + '"), url("' + noImageUrl + '")');
 }
@@ -227,7 +227,7 @@ function getGear(toonGear) {
 				}
 
 				// Adds a string of HTML for each item to the originally empty gearList variable
-				gearList += '<li class="' + getQuality(itemData.quality) + '"><div class="row"><div class="col-12"><h4>' + keyFormatter(key) + '</h4></div></div><div class="row"><div class="col-2-5"><div><img src="http://media.blizzard.com/wow/icons/56/'
+				gearList += '<li class="' + getQuality(itemData.quality) + '"><div class="row"><div class="col-12"><h4>' + keyFormatter(key) + '</h4></div></div><div class="row"><div class="col-2-5"><div><img src="https://media.blizzard.com/wow/icons/56/'
 					+ itemData.icon + '.jpg"></div></div><div class="col-5-5"><div><span class="item-name-color">' + itemData.name + '</span><br>'
 					+ nameDesc(itemData.nameDescription) + '<span class="gold-font">Item Level ' + itemData.itemLevel + '</span><br><span>' + material(itemData.itemClass, itemData.itemSubClass) + '</span></div></div>'
 					+ '<div class="col-4"><div>' + armor(itemData.armor) + gearStats(itemData.bonusStats) + '</div></div></div>' + itemBonus(itemData.itemSpells, itemData.description) + '</li>';
@@ -247,7 +247,7 @@ function getTalents(toonTalents) {
 
 		for (var i = 0; i < toonTalents.length; i++) {
 			if (toonTalents[i].spec !== undefined) {
-				specButtonResult += '<button class="button spec-' + i + '"><img src="http://media.blizzard.com/wow/icons/36/' + toonTalents[i].spec.icon
+				specButtonResult += '<button class="button spec-' + i + '"><img src="https://media.blizzard.com/wow/icons/36/' + toonTalents[i].spec.icon
 					+ '.jpg"><h3>' + toonTalents[i].spec.name + '</h4><p>(' + toonTalents[i].spec.role + ')</p></button>';
 
 				if (toonTalents[i].selected === true) {
@@ -257,19 +257,19 @@ function getTalents(toonTalents) {
 				}
 
 				if (toonTalents[i].talents.length === 0) {
-					specListResult += '<li><div class="row"><div class="col-12"><img src="http://media.blizzard.com/wow/icons/56/'
+					specListResult += '<li><div class="row"><div class="col-12"><img src="https://media.blizzard.com/wow/icons/56/'
 						+ toonTalents[i].spec.icon + '.jpg"><h2>' + toonTalents[i].spec.name + '</h2><p>' + toonTalents[i].spec.description
 						+ '</p></div></div></li><li><div class="row"><div class="col-12"><h3>No Talents Selected</h3><br></div></div></li>';
 				} else {
 					for (var x = 0; x < toonTalents[i].talents.length; x++) {
 
 					if (x === 0) {
-						specListResult += '<li><div class="row"><div class="col-12"><img src="http://media.blizzard.com/wow/icons/56/'
+						specListResult += '<li><div class="row"><div class="col-12"><img src="https://media.blizzard.com/wow/icons/56/'
 							+ toonTalents[i].spec.icon + '.jpg"><h2>' + toonTalents[i].spec.name + '</h2><p>' + toonTalents[i].spec.description
 							+ '</p></div></div></li>';
 					}
 
-					specListResult += '<li><div class="row"><div class="col-12"><img src="http://media.blizzard.com/wow/icons/36/'
+					specListResult += '<li><div class="row"><div class="col-12"><img src="https://media.blizzard.com/wow/icons/36/'
 						+ toonTalents[i].talents[x].spell.icon + '.jpg"><h3>' + toonTalents[i].talents[x].spell.name + '</h3><p>' + toonTalents[i].talents[x].spell.castTime
 						+ '</p></div></div><div class="row"><div class="col-12"><p>' + toonTalents[i].talents[x].spell.description + '</p></div></div></li>'
 					}
